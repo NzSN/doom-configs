@@ -6,8 +6,10 @@
  '(custom-enabled-themes '(doom-solarized-dark))
  '(custom-safe-themes
    '("cf922a7a5c514fad79c483048257c5d8f242b21987af0db813d3f0b138dfaf53" default))
+ '(lsp-headerline-breadcrumb-enable t)
  '(org-agenda-files '("~/Notes/Brain/20211226110640-sche_2022_01.org"))
  '(org-agenda-skip-scheduled-if-deadline-is-shown nil)
+ '(org-agenda-span 30)
  '(package-selected-packages '(ccls ggtags)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
