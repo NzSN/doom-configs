@@ -34,7 +34,7 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
-(setq org-roam-directory "~/Notes/Brain")
+(setq org-roam-directory "~/Notes/Concepts")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -53,6 +53,18 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Encryption Settings
+(require 'epa-file)
+(epa-file-enable)
+;; Encrypting Specific Entries in an org File with org-crypt.
+(require 'org-crypt)
+(org-crypt-use-before-save-magic)
+(setq org-tags-exclude-from-inheritance (quote ("crypt")))
+;; GPG key to use for encryption
+;; Either the Key ID or set to nil to use symmetric encryption.
+(setq org-crypt-key nil)
+
+;; Org-roam v2 configures
 (use-package! websocket
     :after org-roam)
 
@@ -67,3 +79,7 @@
           org-roam-ui-follow t
           org-roam-ui-update-on-save t
           org-roam-ui-open-on-start t))
+(setq org-roam-capture-templates '(("d" "default" plain "%?"
+     :target (file+head "${slug}.org.gpg"
+                        "#+title: ${title}\n")
+     :unnarrowed t)))
