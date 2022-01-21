@@ -83,3 +83,4 @@
      :target (file+head "${slug}.org.gpg"
                         "#+title: ${title}\n")
      :unnarrowed t)))
+
