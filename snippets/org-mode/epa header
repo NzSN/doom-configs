@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: epa header
+# uuid: epa-header
+# key: epa-header
+# condition: t
+# --
+# -*- mode:org; epa-file-encrypt-to: ("aydenlin@foxmail.com") -*-
