@@ -112,3 +112,6 @@
   '("cc-mode"
     (c-offsets-alist . ((innamespace . [0])))))
 (c-add-style "my-cc-mode" my-cc-style)
+
+;; banner
+(setq fancy-splash-image (expand-file-name "~/.doom.d/misc/splash/cute-demon.png"))
