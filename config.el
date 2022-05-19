@@ -115,3 +115,7 @@
 
 ;; banner
 (setq fancy-splash-image (expand-file-name "~/.doom.d/misc/splash/cute-demon.png"))
+
+;; VUE
+(add-hook 'vue-mode-hook #'lsp!)
+(use-package! lsp-volar)
