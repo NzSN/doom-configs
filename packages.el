@@ -55,4 +55,5 @@
 
 ;; VUE
 (package! vue-mode)
-(package! lsp-volar :recipe (:host github :repo "jadestrong/lsp-volar"))
+;;(package! lsp-volar :recipe (:host github :repo "jadestrong/lsp-volar"))
+(package! company-tabnine :recipe (:host github :repo "TommyX12/company-tabnine"))

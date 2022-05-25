@@ -103,3 +103,12 @@
 ;; VUE
 (add-hook 'vue-mode-hook #'lsp!)
 (use-package! lsp-volar)
+
+(setq +format-with-lsp nil)
+
+;; Tabnine
+(after! company
+  (setq +lsp-company-backends '(company-tabnine :separate company-capf company-yasnippet))
+  (setq company-show-numbers t)
+  (setq company-idle-delay 0)
+)
