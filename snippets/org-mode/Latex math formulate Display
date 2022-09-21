@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Latex math formulate Display
+# key: lmfd
+# --
+\[$1\]

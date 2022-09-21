@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Latex Math Formula: Right arrow
+# uuid:
+# key: lmfra
+# condition: t
+# --
+\rightarrow $0

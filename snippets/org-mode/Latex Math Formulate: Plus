@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Latex Math Formulate: Plus
+# uuid: Latex_Math_Formulate_Plus
+# key: lmfp
+# condition: t
+# --
+$1 \times $0

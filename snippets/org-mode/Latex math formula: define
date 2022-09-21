@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Latex math formula: define
+# key: lmfdef
+# --
+:\equiv
