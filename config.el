@@ -123,3 +123,5 @@
                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
   (setq org-latex-compiler "xelatex"))
+
+(setq lsp-idle-delay 0.500)
