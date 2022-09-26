@@ -125,3 +125,10 @@
   (setq org-latex-compiler "xelatex"))
 
 (setq lsp-idle-delay 0.500)
+
+
+;; cc-mode style
+(defconst my-cc-style
+  '("cc-mode"
+    (c-offsets-alist . ((innamespace . [0])))))
+(c-add-style "my-cc-mode" my-cc-style)
