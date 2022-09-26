@@ -132,3 +132,8 @@
   '("cc-mode"
     (c-offsets-alist . ((innamespace . [0])))))
 (c-add-style "my-cc-mode" my-cc-style)
+
+;; keybindings
+(map! :leader 
+      :desc "Code Tree"
+      "c u" #'lsp-ui-imenu)
