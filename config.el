@@ -137,3 +137,7 @@
 (map! :leader 
       :desc "Code Tree"
       "c u" #'lsp-ui-imenu)
+
+;; js deno server
+(add-hook 'typescript-mode-hook 'deno-fmt-mode)
+(add-hook 'js2-mode-hook 'deno-fmt-mode)
