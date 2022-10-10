@@ -131,7 +131,11 @@
 (defconst my-cc-style
   '("cc-mode"
     (c-offsets-alist . ((innamespace . [0])))))
+(defconst my-c-style
+  '("c-mode"
+    (c-offsets-alist . ((innamespace . [0])))))
 (c-add-style "my-cc-mode" my-cc-style)
+(c-add-style "my-c-mode" my-cc-style)
 
 ;; keybindings
 (map! :leader 
