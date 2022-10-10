@@ -110,7 +110,7 @@
 (after! company
   (setq +lsp-company-backends '(company-tabnine :separate company-capf company-yasnippet))
   (setq company-show-numbers t)
-  (setq company-idle-delay 0)
+  (setq company-idle-delay 0.5)
 )
 
 ;; org-mode latex chinese support
