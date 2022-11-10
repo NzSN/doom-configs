@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Theorem
+# uuid:
+# key: thm
+# condition: t
+# --
+#+BEGIN_THM
+$1
+#+END_THM
+$0
