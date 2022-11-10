@@ -6,4 +6,5 @@
 # --
 #+BEGIN_LEMMA
 $1
-$+END_LEMMA
+#+END_LEMMA
+$0
