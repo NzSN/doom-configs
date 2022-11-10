@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Definition
+# uuid:
+# key: def
+# condition: t
+# --
+#+BEGIN_DEF
+$1
+#+END_DEF
+$0
