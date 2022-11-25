@@ -4,7 +4,7 @@
 # key: def
 # condition: t
 # --
-#+BEGIN_DEF
-$1
+#+BEGIN_DEF $1
+$2
 #+END_DEF
 $0
