@@ -1,8 +1,6 @@
 # -*- mode: snippet -*-
 # name: Definition
-# uuid:
 # key: def
-# condition: t
 # --
 #+BEGIN_DEF $1
 $2

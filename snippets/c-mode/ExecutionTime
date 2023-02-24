@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: ExecutionTime
+# key: etm
+# --
+clock_t ${1:begin} = clock();
+
+$4
+
+clock_t ${2:end} = clock();
+double ${3:time_spent} = (double)($1 - $2) / CLOCKS_PER_SEC;
+$0
