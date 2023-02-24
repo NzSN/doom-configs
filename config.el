@@ -151,6 +151,6 @@
 (require 'org)
 (setq org-todo-keywords
     '((sequence "TODO(t)" "PROJ(p)" "LOOP(r)" "STRT(s!)" "WAIT(w!)" "HOLD(h!)" "IDEA(i)" "|" "DONE(d!)" "KILL(k!)")
-      (sequence "[ ](T!)" "[-](S)" "[?](W)" "|" "[X](D!)")
+      (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D!)")
       (sequence "|" "OKAY(o)" "YES(y)" "NO(n)")))
 
