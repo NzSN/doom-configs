@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: etm
+# key: etm
+# --
+auto ${1:start} = std::chrono::high_resolution_clock::now();
+     $3
+auto ${2:elapsed} = std::chrono::high_resolution_clock::now() - $1;
+
+long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(
+        $2).count();
+$0
