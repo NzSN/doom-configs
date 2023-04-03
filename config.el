@@ -154,3 +154,5 @@
       (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D!)")
       (sequence "|" "OKAY(o)" "YES(y)" "NO(n)")))
 
+
+(map! "C-c C" #'centaur-tabs--kill-this-buffer-dont-ask)
