@@ -146,7 +146,7 @@
 ;;(add-hook 'typescript-mode-hook 'deno-fmt-mode)
 ;;(add-hook 'js2-mode-hook 'deno-fmt-mode)
 
-(setq lsp-use-plists "true")
+;; (setq lsp-use-plists "true")
 
 (require 'org)
 (setq org-todo-keywords
@@ -155,14 +155,14 @@
       (sequence "|" "OKAY(o)" "YES(y)" "NO(n)")))
 
 
-(map! "C-c C" #'centaur-tabs--kill-this-buffer-dont-ask)
+;; (map! "C-c C" #'centaur-tabs--kill-this-buffer-dont-ask)
 
 ;; Copilot
 ;; accept completion from copilot and fallback to company
-(use-package! copilot
-  :hook (prog-mode . copilot-mode)
-  :bind (:map copilot-completion-map
-              ("<tab>" . 'copilot-accept-completion)
-              ("TAB" . 'copilot-accept-completion)
-              ("C-TAB" . 'copilot-accept-completion-by-word)
-              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+;; (use-package! copilot
+;;   :hook (prog-mode . copilot-mode)
+;;   :bind (:map copilot-completion-map
+;;               ("<tab>" . 'copilot-accept-completion)
+;;               ("TAB" . 'copilot-accept-completion)
+;;               ("C-TAB" . 'copilot-accept-completion-by-word)
+;;               ("C-<tab>" . 'copilot-accept-completion-by-word)))
