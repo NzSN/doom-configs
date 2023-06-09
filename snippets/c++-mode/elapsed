@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: elapsed
+# key: elapsed
+# --
+auto start = std::chrono::high_resolution_clock::now();
+$1
+auto elapsed = std::chrono::high_resolution_clock::now() - start;
+
+long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(
+        elapsed).count();
+$0

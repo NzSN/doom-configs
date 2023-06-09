@@ -98,20 +98,13 @@
 (c-add-style "my-cc-mode" my-cc-style)
 
 ;; banner
-(setq fancy-splash-image (expand-file-name "~/.doom.d/misc/splash/cute-demon.png"))
+(setq fancy-splash-image (expand-file-name "~/.config/doom/misc/splash/cute-demon.png"))
 
 ;; VUE
 ;; (add-hook 'vue-mode-hook #'lsp!)
 ;; (use-package! lsp-volar)
 
 (setq +format-with-lsp nil)
-
-;; Tabnine
-(after! company
-  (setq +lsp-company-backends '(company-tabnine :separate company-capf company-yasnippet))
-  (setq company-show-numbers t)
-  (setq company-idle-delay 0.5)
-)
 
 ;; org-mode latex chinese support
 (with-eval-after-load 'ox-latex
