@@ -147,6 +147,13 @@
       (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D!)")
       (sequence "|" "OKAY(o)" "YES(y)" "NO(n)")))
 
+;; Read env from .zshrc into emacs
+(let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
+  (setenv "PATH" path)
+  (setq exec-path
+        (append
+         (split-string-and-unquote path ":")
+         exec-path)))
 
 ;; (map! "C-c C" #'centaur-tabs--kill-this-buffer-dont-ask)
 
