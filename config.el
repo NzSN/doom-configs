@@ -157,7 +157,7 @@
          exec-path)))
 
 ;; lsp mode
-(setq lsp-clients-clangd-args '("-j=3"
+(setq lsp-clients-clangd-args '("-j=12"
 				"--background-index"
 				"--clang-tidy"
 				"--completion-style=detailed"
