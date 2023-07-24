@@ -122,7 +122,8 @@
     (c-basic-offset . 2)))
 (defconst my-c-style
   '("c-mode"
-    (c-offsets-alist . ((innamespace . [0])))))
+    (c-offsets-alist . ((innamespace . [0])))
+    (c-basic-offset . 2)))
 (c-add-style "my-cc-mode" my-cc-style)
 (c-add-style "my-c-mode" my-cc-style)
 
