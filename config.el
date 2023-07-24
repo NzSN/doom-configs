@@ -92,11 +92,6 @@
 (defun add-d-to-ediff-mode-map () (define-key ediff-mode-map "d" 'ediff-copy-both-to-C))
 (add-hook 'ediff-keymap-setup-hook 'add-d-to-ediff-mode-map)
 
-(defconst my-cc-style
-  '("cc-mode"
-    (c-offsets-alist . ((innamespace . [0])))))
-(c-add-style "my-cc-mode" my-cc-style)
-
 ;; banner
 (setq fancy-splash-image (expand-file-name "~/.config/doom/misc/splash/cute-demon.png"))
 
