@@ -124,8 +124,16 @@
   '("c-mode"
     (c-offsets-alist . ((innamespace . [0])))
     (c-basic-offset . 2)))
-(c-add-style "my-cc-mode" my-cc-style)
-(c-add-style "my-c-mode" my-cc-style)
+(c-add-style "my-cc-style" my-cc-style)
+(c-add-style "my-c-style" my-c-style)
+
+(defun my-cc-indent-setup ()
+  (c-set-style "my-cc-style"))
+(add-hook 'c++-mode-hook 'my-cc-indent-setup)
+(defun my-c-indent-setup ()
+  (c-set-style "my-c-style"))
+(add-hook 'c-mode-hook 'my-c-indent-setup)
+
 
 ;; keybindings
 (map! :leader 
