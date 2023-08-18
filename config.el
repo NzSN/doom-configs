@@ -180,3 +180,11 @@
 ;;               ("TAB" . 'copilot-accept-completion)
 ;;               ("C-TAB" . 'copilot-accept-completion-by-word)
 ;;               ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
+(load! "lisp/tla-mode")
+(require 'tla-mode)
+(use-package tla-mode :mode "\.tla$")
+
+
+
+
