@@ -66,3 +66,7 @@
 ;; Copilot
 (package! copilot
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+
+;; Polymode required by tla-pcal-mode
+(package! polymode)
+(package! poly-markdown)

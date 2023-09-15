@@ -1,0 +1,3 @@
+[submodule "lisp/tla-tools"]
+	path = lisp/tla-tools
+	url = https://github.com/mrc/tla-tools.git

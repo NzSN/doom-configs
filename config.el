@@ -181,9 +181,13 @@
 ;;               ("C-TAB" . 'copilot-accept-completion-by-word)
 ;;               ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
-(load! "lisp/tla-mode")
-(require 'tla-mode)
-(use-package tla-mode :mode "\.tla$")
+;; (load! "lisp/tla-mode")
+;; (require 'tla-mode)
+;; (use-package tla-mode :mode "\.tla$")
+
+(load! "lisp/tla-tools/tla-pcal-mode")
+(require 'tla-pcal-mode)
+(use-package tla-pcal-mode :mode "\.tla$")
 
 ;; You can use this hydra menu that have all the commands
 (map! :n "C-SPC" 'harpoon-quick-menu-hydra)
