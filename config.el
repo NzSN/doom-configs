@@ -186,8 +186,14 @@
 ;; (use-package tla-mode :mode "\.tla$")
 
 (load! "lisp/tla-tools/tla-pcal-mode")
+(load! "lisp/tla-tools/tla-tools")
 (require 'tla-pcal-mode)
+(require 'tla-tools)
 (use-package tla-pcal-mode :mode "\.tla$")
+
+(load! "lisp/org-fragtog/org-fragtog")
+(require 'org-fragtog)
+(add-hook 'org-mode-hook 'org-fragtog-mode)
 
 ;; You can use this hydra menu that have all the commands
 (map! :n "C-SPC" 'harpoon-quick-menu-hydra)
