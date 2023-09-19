@@ -1,3 +1,6 @@
 [submodule "lisp/tla-tools"]
 	path = lisp/tla-tools
 	url = https://github.com/mrc/tla-tools.git
+[submodule "lisp/org-fragtog"]
+	path = lisp/org-fragtog
+	url = https://github.com/io12/org-fragtog.git
