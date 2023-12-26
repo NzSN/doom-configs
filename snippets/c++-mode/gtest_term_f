@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: gtest_term_f
+# key:  gtest_term_f
+# --
+TEST_F(${1:Fixture}, ${2:TermName}) {
+  $0
+}

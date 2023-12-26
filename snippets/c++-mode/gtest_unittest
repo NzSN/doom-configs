@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: gtest_inc
+# key: gtest_inc
+# --
+#include <gtest/gtest.h>
+#include <rapidcheck/gtest.h>

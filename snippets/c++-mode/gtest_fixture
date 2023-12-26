@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: gtest_fixture
+# key: gtest_fixture
+# --
+struct ${1:name}: public ::testing::Test {
+  void SetUp() override {
+    $2
+  }
+};
