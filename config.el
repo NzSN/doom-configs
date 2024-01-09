@@ -199,3 +199,6 @@
 (map! :n "C-SPC" 'harpoon-quick-menu-hydra)
 (map! :n "C-s" 'harpoon-add-file)
 
+;; Setup attach for Notes
+(setq org-attach-directory "~/Notes/.attach")
+(setq org-attach-id-dir    "~/Notes/.attach")
