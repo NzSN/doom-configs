@@ -63,7 +63,6 @@
 ;; GPG key to use for encryption
 ;; Either the Key ID or set to nil to use symmetric encryption.
 (setq org-crypt-key nil)
-
 ;; Org-roam v2 configures
 (use-package! websocket
     :after org-roam)
@@ -140,17 +139,16 @@
       :desc "Code Tree"
       "c u" #'lsp-ui-imenu)
 
-;; js deno server
-;;(add-hook 'typescript-mode-hook 'deno-fmt-mode)
-;;(add-hook 'js2-mode-hook 'deno-fmt-mode)
-
-;; (setq lsp-use-plists "true")
-
-(require 'org)
-(setq org-todo-keywords
-    '((sequence "TODO(t)" "PROJ(p)" "LOOP(r)" "STRT(s!)" "WAIT(w!)" "HOLD(h!)" "IDEA(i)" "|" "DONE(d!)" "KILL(k!)")
-      (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D!)")
-      (sequence "|" "OKAY(o)" "YES(y)" "NO(n)")))
+(use-package! org
+  :defer t
+  :config
+  ;; Setup attach for Notes
+  (setq org-attach-directory "~/Notes/.attach")
+  (setq org-attach-id-dir    "~/Notes/.attach")
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "PROJ(p)" "LOOP(r)" "STRT(s!)" "WAIT(w!)" "HOLD(h!)" "IDEA(i)" "|" "DONE(d!)" "KILL(k!)")
+          (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D!)")
+          (sequence "|" "OKAY(o)" "YES(y)" "NO(n)"))))
 
 ;; Read env from .zshrc into emacs
 (let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
@@ -199,6 +197,7 @@
 (map! :n "C-SPC" 'harpoon-quick-menu-hydra)
 (map! :n "C-s" 'harpoon-add-file)
 
-;; Setup attach for Notes
-(setq org-attach-directory "~/Notes/.attach")
-(setq org-attach-id-dir    "~/Notes/.attach")
+(use-package! highlight-indent-guides
+     :defer t
+     :config
+     (setq highlight-indent-guides-method 'fill))
