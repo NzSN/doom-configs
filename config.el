@@ -200,4 +200,4 @@
 (use-package! highlight-indent-guides
      :defer t
      :config
-     (setq highlight-indent-guides-method 'fill))
+     (setq highlight-indent-guides-method 'column))
