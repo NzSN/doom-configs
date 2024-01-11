@@ -145,7 +145,8 @@
   ;; Setup attach for Notes
   (setq org-agenda-inhibit-startup t)
   (setq org-agenda-files
-        (find-lisp-find-files "~/Notes" "\.org$"))
+        (append (find-lisp-find-files "~/Notes" "\.org$")
+                (find-lisp-find-files "~/Notes" "\.org\.gpg$")))
   (setq org-agenda-text-search-extra-files
         '(agenda-archives
           "~/Notes/Schedules/Schedule.org.gpg"))
