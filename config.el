@@ -29,7 +29,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/Notes/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -138,11 +138,17 @@
 (map! :leader 
       :desc "Code Tree"
       "c u" #'lsp-ui-imenu)
-
+(load-library "find-lisp")
 (use-package! org
   :defer t
   :config
   ;; Setup attach for Notes
+  (setq org-agenda-inhibit-startup t)
+  (setq org-agenda-files
+        (find-lisp-find-files "~/Notes" "\.org$"))
+  (setq org-agenda-text-search-extra-files
+        '(agenda-archives
+          "~/Notes/Schedules/Schedule.org.gpg"))
   (setq org-attach-directory "~/Notes/.attach")
   (setq org-attach-id-dir    "~/Notes/.attach")
   (setq org-todo-keywords
