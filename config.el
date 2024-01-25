@@ -118,10 +118,7 @@
 (defconst my-cc-style
   '("cc-mode"
     (c-offsets-alist . ((innamespace . [0])
-                        (comment-intro . [+])
-                        (defun-open . [0])
-                        (func-decl-cont . [0])
-                        (defun-block-intro . [0])))
+                        (comment-intro . [+])))
     (c-basic-offset . 2)))
 (defconst my-c-style
   '("c-mode"
