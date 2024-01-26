@@ -4,3 +4,6 @@
 [submodule "lisp/org-fragtog"]
 	path = lisp/org-fragtog
 	url = https://github.com/io12/org-fragtog.git
+[submodule "lisp/kaolin-themes"]
+	path = lisp/kaolin-themes
+	url = https://github.com/ogdenwebb/emacs-kaolin-themes.git

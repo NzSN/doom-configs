@@ -192,6 +192,14 @@
 ;; (require 'tla-mode)
 ;; (use-package tla-mode :mode "\.tla$")
 
+(load! "lisp/kaolin-themes/kaolin-themes-lib")
+(load! "lisp/kaolin-themes/kaolin-themes")
+(load! "lisp/kaolin-themes/kaolin-themes-treemacs")
+(use-package kaolin-themes
+  :config
+  (load-theme 'kaolin-dark t)
+  (kaolin-treemacs-theme))
+
 (load! "lisp/tla-tools/tla-pcal-mode")
 (load! "lisp/tla-tools/tla-tools")
 (require 'tla-pcal-mode)

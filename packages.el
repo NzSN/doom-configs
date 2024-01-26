@@ -70,3 +70,5 @@
 ;; Polymode required by tla-pcal-mode
 (package! polymode)
 (package! poly-markdown)
+
+(package! autothemer)
