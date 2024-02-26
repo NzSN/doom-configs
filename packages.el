@@ -73,3 +73,4 @@
 
 (package! autothemer)
 (package! all-the-icons)
+(package! lsp-sourcekit)
