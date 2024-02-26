@@ -72,3 +72,4 @@
 (package! poly-markdown)
 
 (package! autothemer)
+(package! all-the-icons)

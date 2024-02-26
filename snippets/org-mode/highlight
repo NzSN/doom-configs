@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: highlight
-# key: hl
-# --
-/*$1*/$0
