@@ -225,3 +225,8 @@
 
 (use-package swift-mode
   :hook (swift-mode . (lambda () (lsp))))
+
+(setq org-roam-capture-templates
+   '(("d" "default" plain "%?" :target
+      (file+head "${slug}.org" "#+title: ${title}\12")
+      :unnarrowed t)))
