@@ -231,6 +231,7 @@
       (file+head "${slug}.org" "#+title: ${title}\12")
       :unnarrowed t)))
 
+;; Setup background for inline images in org-mode.
 (defun org--create-inline-image-advice (img)
   (nconc img (list :background "#eeeee4")))
 (advice-add 'org--create-inline-image
