@@ -230,3 +230,8 @@
    '(("d" "default" plain "%?" :target
       (file+head "${slug}.org" "#+title: ${title}\12")
       :unnarrowed t)))
+
+(defun org--create-inline-image-advice (img)
+  (nconc img (list :background "#f8f8f8")))
+(advice-add 'org--create-inline-image
+            :filter-return #'org--create-inline-image-advice)
