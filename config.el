@@ -232,6 +232,6 @@
       :unnarrowed t)))
 
 (defun org--create-inline-image-advice (img)
-  (nconc img (list :background "#f8f8f8")))
+  (nconc img (list :background "#eeeee4")))
 (advice-add 'org--create-inline-image
             :filter-return #'org--create-inline-image-advice)
