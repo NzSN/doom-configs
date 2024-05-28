@@ -170,26 +170,14 @@
 (setq lsp-clients-clangd-args '("-j=12"
 				"--background-index"
 				"--clang-tidy"
+                                "--all-scopes-completion"
 				"--completion-style=detailed"
-				"--header-insertion=never"
-				"--header-insertion-decorators=0"))
+				"--header-insertion=iwyu"
+				"--pch-storage=disk"))
+;; Use ccls instead. Uncomment this if want ti use clangd.
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
 
 ;; (map! "C-c C" #'centaur-tabs--kill-this-buffer-dont-ask)
-
-;; Copilot
-;; accept completion from copilot and fallback to company
-;; (use-package! copilot
-;;   :hook (prog-mode . copilot-mode)
-;;   :bind (:map copilot-completion-map
-;;               ("<tab>" . 'copilot-accept-completion)
-;;               ("TAB" . 'copilot-accept-completion)
-;;               ("C-TAB" . 'copilot-accept-completion-by-word)
-;;               ("C-<tab>" . 'copilot-accept-completion-by-word)))
-
-;; (load! "lisp/tla-mode")
-;; (require 'tla-mode)
-;; (use-package tla-mode :mode "\.tla$")
 
 (load! "lisp/kaolin-themes/kaolin-themes-lib")
 (load! "lisp/kaolin-themes/kaolin-themes")
