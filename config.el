@@ -197,6 +197,11 @@
 (require 'org-fragtog)
 (add-hook 'org-mode-hook 'org-fragtog-mode)
 
+(load! "lisp/bazel")
+(require 'bazel)
+(use-package bazel-mode :mode "\.bzl$")
+(use-package bazel-mode :mode "\.bazel$")
+
 ;; You can use this hydra menu that have all the commands
 (map! :n "C-SPC" 'harpoon-quick-menu-hydra)
 (map! :n "C-s" 'harpoon-add-file)
