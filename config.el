@@ -229,3 +229,18 @@
   (nconc img (list :background "#eeeee4")))
 (advice-add 'org--create-inline-image
             :filter-return #'org--create-inline-image-advice)
+
+;; Select theme based on time
+(defun synchronize-theme ()
+  (let* ((light-theme 'doom-solarized-light)
+         (dark-theme  'doom-solarized-dark)
+         (start-time-light-theme 6)
+         (end-time-light-theme 18)
+         (hour (string-to-number (substring (current-time-string) 11 13)))
+         (next-theme (if (member hour (number-sequence start-time-light-theme end-time-light-theme))
+                         light-theme dark-theme)))
+    (when (not (equal doom-theme next-theme))
+      (setq doom-theme next-theme)
+      (load-theme next-theme))))
+
+(run-with-timer 0 900 'synchronize-theme)
