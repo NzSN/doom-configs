@@ -241,6 +241,6 @@
                          light-theme dark-theme)))
     (when (not (equal doom-theme next-theme))
       (setq doom-theme next-theme)
-      (load-theme next-theme))))
+      (load-theme next-theme t))))
 
 (run-with-timer 0 900 'synchronize-theme)
