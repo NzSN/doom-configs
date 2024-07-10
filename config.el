@@ -235,7 +235,7 @@
   (let* ((light-theme 'doom-solarized-light)
          (dark-theme  'doom-solarized-dark)
          (start-time-light-theme 6)
-         (end-time-light-theme 19)
+         (end-time-light-theme 18)
          (hour (string-to-number (substring (current-time-string) 11 13)))
          (next-theme (if (member hour (number-sequence start-time-light-theme end-time-light-theme))
                          light-theme dark-theme)))
