@@ -247,5 +247,15 @@
 ;; (run-with-timer 0 900 'synchronize-theme)
 
 ;; super-save
-(setq auto-save-default t)
-(setq auto-save-default nil)
+(use-package! super-save
+  :ensure t
+  :config
+  (super-save-mode +1)
+  (setq auto-save-default t)
+  (setq auto-save-default nil)
+  ;; add integration with ace-window
+  (add-to-list 'super-save-triggers 'ace-window)
+  ;; save on find-file
+  (add-to-list 'super-save-hook-triggers 'find-file-hook)
+
+  )
