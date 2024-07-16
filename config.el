@@ -253,9 +253,9 @@
   (super-save-mode +1)
   (setq auto-save-default t)
   (setq auto-save-default nil)
+  (setq super-save-silent t)
   ;; add integration with ace-window
   (add-to-list 'super-save-triggers 'ace-window)
   ;; save on find-file
   (add-to-list 'super-save-hook-triggers 'find-file-hook)
-
   )
