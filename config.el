@@ -248,6 +248,7 @@
 
 ;; super-save
 (use-package! super-save
+  :after org
   :ensure t
   :config
   (super-save-mode +1)
