@@ -260,3 +260,14 @@
   ;; save on find-file
   (add-to-list 'super-save-hook-triggers 'find-file-hook)
   )
+
+;; protobuf-mode
+(load! "lisp/protobuf-mode")
+(defconst my-protobuf-style
+  '((c-basic-offset . 2)
+    (indent-tabs-mode . nil)))
+(use-package protobuf-mode
+  :mode ".proto$"
+  :config
+  (add-hook 'protobuf-mode-hook
+            (lambda () (c-add-style "my-style" my-protobuf-style t))))
