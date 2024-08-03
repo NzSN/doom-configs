@@ -75,3 +75,4 @@
 (package! all-the-icons)
 (package! lsp-sourcekit)
 (package! super-save)
+(package! ellama)

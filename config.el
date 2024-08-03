@@ -271,3 +271,8 @@
   :config
   (add-hook 'protobuf-mode-hook
             (lambda () (c-add-style "my-style" my-protobuf-style t))))
+
+;; ellama keybindings
+(use-package ellama
+  :init
+  (setopt ellama-keymap-prefix "C-c e"))
