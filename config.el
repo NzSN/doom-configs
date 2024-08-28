@@ -277,6 +277,3 @@
   :init
   (setopt ellama-keymap-prefix "C-c e"))
 
-(use-package lsp-mode
-  :init
- (setq lsp-use-plists t))
