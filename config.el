@@ -277,3 +277,6 @@
   :init
   (setopt ellama-keymap-prefix "C-c e"))
 
+;; projectile
+;; To speed up indexing speed
+(setq projectile-indexing-method 'alien)
