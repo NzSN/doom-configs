@@ -280,7 +280,7 @@
 ;; projectile
 ;; To speed up indexing speed
 (setq projectile-indexing-method 'alien)
-(setq lsp-use-plists t)
+(setq lsp-use-plists "true")
 
 (defun lsp-booster--advice-json-parse (old-fn &rest args)
   "Try to parse bytecode instead of json."
