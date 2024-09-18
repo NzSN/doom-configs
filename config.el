@@ -312,3 +312,13 @@
           (cons "emacs-lsp-booster" orig-result))
       orig-result)))
 (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
+
+(use-package! disaster
+  :commands (disaster)
+  :init
+  ;; If you prefer viewing assembly code in `nasm-mode` instead of `asm-mode`
+  (setq disaster-assembly-mode 'nasm-mode)
+
+  (map! :localleader
+        :map (c++-mode-map c-mode-map fortran-mode-map)
+        :desc "Disaster" "d" #'disaster))

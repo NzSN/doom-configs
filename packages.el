@@ -76,3 +76,7 @@
 (package! lsp-sourcekit)
 (package! super-save)
 (package! ellama)
+(package! disaster
+  :recipe (:host github :repo "jart/disaster"))
+(package! vlf
+  :recipe (:host github :repo "m00natic/vlfi"))
