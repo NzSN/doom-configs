@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sumbt
+# key: sumbt
+# --
+\displaystyle\sum_{$1}^{$2} $0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: bsum_bt
+# key:  bsum_bt
+# --
+\displaystyle\sum_{$1}^{$2} $0
