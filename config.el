@@ -68,6 +68,9 @@
     :after org-roam)
 
 (use-package! org-roam-ui
+    :init 
+    (when (featurep 'xwidget-internal)
+          (setq org-roam-ui-browser-function #'xwidget-webkit-browse-url))
     :after org-roam ;; or :after org
 ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
 ;;         a hookable mode anymore, you're advised to pick something yourself
@@ -322,3 +325,4 @@
   (map! :localleader
         :map (c++-mode-map c-mode-map fortran-mode-map)
         :desc "Disaster" "d" #'disaster))
+

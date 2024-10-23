@@ -15,6 +15,7 @@
 ;;      directory (for easy access to its source code).
 
 (setenv "LSP_USE_PLISTS" "1")
+(setenv "WEBKIT_DISABLE_COMPOSITING_MODE" "1")
 
 (doom! :input
        chinese
