@@ -138,10 +138,6 @@
 (add-hook 'c-mode-hook 'my-c-indent-setup)
 
 
-;; keybindings
-(map! :leader 
-      :desc "Code Tree"
-      "c u" #'lsp-ui-imenu)
 (load-library "find-lisp")
 (use-package! org
   :defer t
@@ -204,10 +200,6 @@
 (require 'bazel)
 (use-package bazel-mode :mode "\.bzl$")
 (use-package bazel-mode :mode "\.bazel$")
-
-;; You can use this hydra menu that have all the commands
-(map! :n "C-SPC" 'harpoon-quick-menu-hydra)
-(map! :n "C-s" 'harpoon-add-file)
 
 (use-package! highlight-indent-guides
      :defer t
@@ -334,3 +326,10 @@
         :map (c++-mode-map c-mode-map fortran-mode-map)
         :desc "Disaster" "d" #'disaster))
 
+;; keybindings
+(map! :leader
+      :desc "Code Tree"
+      "c u" #'lsp-ui-imenu)
+;; You can use this hydra menu that have all the commands
+(map! :leader :desc "Harpoon Menu"     "f h" 'harpoon-quick-menu-hydra)
+(map! :leader :desc "Harpoon Add File" "f H" 'harpoon-add-file)
