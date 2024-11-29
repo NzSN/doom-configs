@@ -222,6 +222,14 @@
 (use-package swift-mode
   :hook (swift-mode . (lambda () (lsp))))
 
+;; lsp-mode configurations
+(use-package! lsp-mode
+  :init
+  :config
+  (setq lsp-headerline-breadcrumb-enable t)
+  (setq lsp-headerline-breadcrumb-segments '(project symbols))
+  (setq lsp-lens-enable nil))
+
 (setq org-roam-capture-templates
    '(("d" "default" plain "%?" :target
       (file+head "${slug}.org" "#+title: ${title}\12")
