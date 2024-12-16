@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: language pragma
+# key:  {L
+# --
+{-# LANGUAGE ${1:Value} #-
