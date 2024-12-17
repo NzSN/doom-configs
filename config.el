@@ -204,7 +204,9 @@
 (use-package! highlight-indent-guides
      :defer t
      :config
-     (setq highlight-indent-guides-method 'column))
+     (setq highlight-indent-guides-method 'column)
+     (setq highlight-indent-guides-auto-even-face-perc 50)
+     (setq highlight-indent-guides-auto-odd-face-perc 60))
 
 (use-package lsp-sourcekit
   :after lsp-mode
