@@ -82,3 +82,4 @@
   :recipe (:host github :repo "m00natic/vlfi"))
 (package! ef-themes)
 (package! org-super-agenda)
+(package! highlight-indent-guides)

@@ -201,6 +201,7 @@
 (use-package bazel-mode :mode "\.bzl$")
 (use-package bazel-mode :mode "\.bazel$")
 
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (use-package! highlight-indent-guides
      :defer t
      :config
