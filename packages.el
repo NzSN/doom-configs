@@ -83,3 +83,9 @@
 (package! ef-themes)
 (package! org-super-agenda)
 (package! highlight-indent-guides)
+
+;; org-pandoc-import
+(package! org-pandoc-import
+  :recipe (:host github
+           :repo "tecosaur/org-pandoc-import"
+           :files ("*.el" "filters" "preprocessors")))

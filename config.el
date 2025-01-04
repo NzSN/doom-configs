@@ -336,3 +336,7 @@
 ;; You can use this hydra menu that have all the commands
 (map! :leader :desc "Harpoon Menu"     "f h" 'harpoon-quick-menu-hydra)
 (map! :leader :desc "Harpoon Add File" "f H" 'harpoon-add-file)
+
+
+(use-package! org-pandoc-import :after org)
+(setq epg-pinentry-mode 'loopback)
