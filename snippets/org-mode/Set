@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Set
+# key: set
+# --
+\mathbb{${1:N}}$0

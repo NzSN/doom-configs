@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Naturals
+# key: n_set
+# --
+\mathbb{N} $0

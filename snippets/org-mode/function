@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: function
+# key: fun
+# --
+${1:f}: \mathbb{${2:X}} \rightarrow \mathbb{${3:Y}}$0
