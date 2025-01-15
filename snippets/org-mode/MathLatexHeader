@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: MathLatexHeader
+# key: math_latex_header
+# --
+#+LATEX_HEADER: \usepackage{amsthm}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \usepackage{amssymb}
