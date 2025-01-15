@@ -340,3 +340,15 @@
 
 (use-package! org-pandoc-import :after org)
 (setq epg-pinentry-mode 'loopback)
+
+;; Prevent tab in snippet of org-mode insert space
+;; and instead to move to next input position.
+(defun my/org-tab-conditional ()
+  (interactive)
+  (if (yas-active-snippets)
+      (yas-next-field-or-maybe-expand)
+    (org-cycle)))
+
+(map! :after evil-org
+      :map evil-org-mode-map
+      :i "<tab>" #'my/org-tab-conditional)
