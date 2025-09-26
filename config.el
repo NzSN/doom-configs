@@ -376,9 +376,21 @@
     :config
     ;; You can use M-x minuet-configure-provider to interactively configure provider and model
     (setq minuet-provider 'openai-fim-compatible)
+    (plist-put minuet-openai-fim-compatible-options :end-point "https://api.deepseek.com/beta/completions")
+    (plist-put minuet-openai-fim-compatible-options :name "DeepSeek")
+    (plist-put minuet-openai-fim-compatible-options :api-key "DS_KEY")
+    (plist-put minuet-openai-fim-compatible-options :model "deepseek-chat")
 
     ;; Required when defining minuet-ative-mode-map in insert/normal states.
     ;; Not required when defining minuet-active-mode-map without evil state.
     (add-hook 'minuet-active-mode-hook #'evil-normalize-keymaps)
 
     (minuet-set-optional-options minuet-openai-fim-compatible-options :max_tokens 256))
+
+(use-package! gptel
+ :config
+ ;; OPTIONAL configuration
+ (setq gptel-model   'deepseek-reasoner
+      gptel-backend (gptel-make-deepseek "DeepSeek"
+                     :stream t
+                     :key "sk-4479af9a6f6c4662a455c946b90ec232")))

@@ -89,4 +89,6 @@
   :recipe (:host github
            :repo "tecosaur/org-pandoc-import"
            :files ("*.el" "filters" "preprocessors")))
+;; AI
 (package! minuet)
+(package! gptel :recipe (:nonrecursive t))
