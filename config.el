@@ -394,3 +394,9 @@
       gptel-backend (gptel-make-deepseek "DeepSeek"
                      :stream t
                      :key "sk-4479af9a6f6c4662a455c946b90ec232")))
+
+;; Claude Code IDE
+(use-package! claude-code-ide
+  :bind ("C-c C-'" . claude-code-ide-menu) ; Set your favorite keybinding
+  :config
+  (claude-code-ide-emacs-tools-setup)) ; Optionally enable Emacs MCP tools
