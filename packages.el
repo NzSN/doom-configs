@@ -90,7 +90,5 @@
            :repo "tecosaur/org-pandoc-import"
            :files ("*.el" "filters" "preprocessors")))
 ;; AI
-(package! minuet)
-(package! gptel :recipe (:nonrecursive t))
 (package! claude-code-ide
   :recipe (:host github :repo "manzaltu/claude-code-ide.el"))

@@ -353,48 +353,6 @@
       :map evil-org-mode-map
       :i "<tab>" #'my/org-tab-conditional)
 
-(use-package! minuet
-    :bind
-    (("M-y" . #'minuet-complete-with-minibuffer) ;; use minibuffer for completion
-     ("M-i" . #'minuet-show-suggestion) ;; use overlay for completion
-     ("C-c m" . #'minuet-configure-provider)
-     :map minuet-active-mode-map
-     ;; These keymaps activate only when a minuet suggestion is displayed in the current buffer
-     ("M-p" . #'minuet-previous-suggestion) ;; invoke completion or cycle to next completion
-     ("M-n" . #'minuet-next-suggestion) ;; invoke completion or cycle to previous completion
-     ("M-A" . #'minuet-accept-suggestion) ;; accept whole completion
-     ;; Accept the first line of completion, or N lines with a numeric-prefix:
-     ;; e.g. C-u 2 M-a will accepts 2 lines of completion.
-     ("M-a" . #'minuet-accept-suggestion-line)
-     ("M-e" . #'minuet-dismiss-suggestion))
-
-    :init
-    ;; if you want to enable auto suggestion.
-    ;; Note that you can manually invoke completions without enable minuet-auto-suggestion-mode
-    ;; (add-hook 'prog-mode-hook #'minuet-auto-suggestion-mode)
-
-    :config
-    ;; You can use M-x minuet-configure-provider to interactively configure provider and model
-    (setq minuet-provider 'openai-fim-compatible)
-    (plist-put minuet-openai-fim-compatible-options :end-point "https://api.deepseek.com/beta/completions")
-    (plist-put minuet-openai-fim-compatible-options :name "DeepSeek")
-    (plist-put minuet-openai-fim-compatible-options :api-key "DS_KEY")
-    (plist-put minuet-openai-fim-compatible-options :model "deepseek-chat")
-
-    ;; Required when defining minuet-ative-mode-map in insert/normal states.
-    ;; Not required when defining minuet-active-mode-map without evil state.
-    (add-hook 'minuet-active-mode-hook #'evil-normalize-keymaps)
-
-    (minuet-set-optional-options minuet-openai-fim-compatible-options :max_tokens 256))
-
-(use-package! gptel
- :config
- ;; OPTIONAL configuration
- (setq gptel-model   'deepseek-reasoner
-      gptel-backend (gptel-make-deepseek "DeepSeek"
-                     :stream t
-                     :key "sk-4479af9a6f6c4662a455c946b90ec232")))
-
 ;; Claude Code IDE
 (use-package! claude-code-ide
   :bind ("C-c C-'" . claude-code-ide-menu) ; Set your favorite keybinding
