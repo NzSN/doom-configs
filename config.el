@@ -206,8 +206,8 @@
      :defer t
      :config
      (setq highlight-indent-guides-method 'column)
-     (setq highlight-indent-guides-auto-even-face-perc 50)
-     (setq highlight-indent-guides-auto-odd-face-perc 60))
+     (setq highlight-indent-guides-auto-even-face-perc 15)
+     (setq highlight-indent-guides-auto-odd-face-perc 15))
 
 (use-package lsp-sourcekit
   :after lsp-mode
@@ -224,6 +224,13 @@
   (setq lsp-headerline-breadcrumb-enable t)
   (setq lsp-headerline-breadcrumb-segments '(project symbols))
   (setq lsp-lens-enable nil))
+
+(use-package! lsp-ui
+  :after (lsp-mode)
+  :init
+  :config
+  (setq lsp-ui-doc-enable t)
+  (setq lsp-ui-doc-show-with-mouse t))
 
 (setq org-roam-capture-templates
    '(("d" "default" plain "%?" :target
