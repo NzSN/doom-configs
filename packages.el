@@ -91,7 +91,6 @@
 (package! shell-maker)
 (package! acp)
 (package! agent-shell)
-(package! eca :recipe (:host github :repo "editor-code-assistant/eca-emacs" :files ("*.el")))
 (package! agent-shell-sidebar :recipe (:host github :repo "cmacrae/agent-shell-sidebar"))
 (package! agent-review
   :recipe (:host github
