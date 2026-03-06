@@ -365,3 +365,7 @@
   :config
   (claude-code-ide-emacs-tools-setup)) ; Optionally enable Emacs MCP tools
 (map! :leader :desc "Claude Code" "a c" #'claude-code-ide-menu)
+
+(require 'acp)
+(require 'agent-shell)
+;; rest of config...
