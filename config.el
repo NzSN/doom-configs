@@ -366,6 +366,18 @@
   (claude-code-ide-emacs-tools-setup)) ; Optionally enable Emacs MCP tools
 (map! :leader :desc "Claude Code" "a c" #'claude-code-ide-menu)
 
+;; Agent shell
 (require 'acp)
-(require 'agent-shell)
-;; rest of config...
+(use-package! agent-shell
+  :init
+  :config
+  (setq agent-shell-opencode-default-model-id "deepseek/deepseek-chat")
+  ;; Evil state-specific RET behavior: insert mode = newline, normal mode = send
+  (evil-define-key 'insert agent-shell-mode-map (kbd "RET") #'newline)
+  (evil-define-key 'normal agent-shell-mode-map (kbd "RET") #'comint-send-input)
+
+  ;; Configure *agent-shell-diff* buffers to start in Emacs state
+  (add-hook 'diff-mode-hook
+	    (lambda ()
+	      (when (string-match-p "\\*agent-shell-diff\\*" (buffer-name))
+		(evil-emacs-state)))))
