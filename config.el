@@ -371,7 +371,7 @@
 (use-package! agent-shell
   :init
   :config
-  (setq agent-shell-opencode-default-model-id "deepseek/deepseek-chat")
+  (setq agent-shell-opencode-default-model-id "deepseek/deepseek-reasoner")
   ;; Evil state-specific RET behavior: insert mode = newline, normal mode = send
   (evil-define-key 'insert agent-shell-mode-map (kbd "RET") #'newline)
   (evil-define-key 'normal agent-shell-mode-map (kbd "RET") #'comint-send-input)
