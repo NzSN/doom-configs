@@ -381,3 +381,8 @@
 	    (lambda ()
 	      (when (string-match-p "\\*agent-shell-diff\\*" (buffer-name))
 		(evil-emacs-state)))))
+(map! :leader
+      (:prefix-map ("a" . "AI AGENT")
+      (:prefix ("s" . "Agent Shell")
+      :desc "Create new agent shell" "n" #'agent-shell-new-shell
+      :desc "Agent shell sidebar" "s" #'agent-shell-sidebar-toggle)))
