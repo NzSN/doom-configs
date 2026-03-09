@@ -83,6 +83,9 @@
           org-roam-ui-open-on-start t))
 
 
+;; Magit
+(after! magit-mode
+  (add-hook 'after-save-hook 'magit-after-save-refresh-status t))
 
 ;; Magit ediff
 (defun ediff-copy-both-to-C ()
@@ -104,7 +107,7 @@
 (setq +format-with-lsp nil)
 
 ;; org-mode latex chinese support
-(with-eval-after-load 'ox-latex
+(after! ox-latex
   (add-to-list 'org-latex-classes
                '("ctexart" "\\documentclass[11pt]{ctexart}"
                  ("\\section{%s}" . "\\section*{%s}")
