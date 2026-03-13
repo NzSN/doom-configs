@@ -389,4 +389,5 @@
       (:prefix-map ("a" . "AI AGENT")
       (:prefix ("s" . "Agent Shell")
       :desc "Create new agent shell" "n" #'agent-shell-new-shell
-      :desc "Agent shell sidebar" "s" #'agent-shell-sidebar-toggle)))
+      :desc "Agent shell sidebar" "s" #'agent-shell-sidebar-toggle
+      :desc "Select model" "m" #'agent-shell-set-session-model)))
