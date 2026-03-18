@@ -390,4 +390,5 @@
       (:prefix ("s" . "Agent Shell")
       :desc "Create new agent shell" "n" #'agent-shell-new-shell
       :desc "Agent shell sidebar" "s" #'agent-shell-sidebar-toggle
-      :desc "Select model" "m" #'agent-shell-set-session-model)))
+      :desc "Select model" "m" #'agent-shell-set-session-model
+      :desc "Reset Sidebar" "r" #'agent-shell-sidebar-reset)))
