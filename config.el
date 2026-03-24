@@ -391,4 +391,5 @@
       :desc "Create new agent shell" "n" #'agent-shell-new-shell
       :desc "Agent shell sidebar" "s" #'agent-shell-sidebar-toggle
       :desc "Select model" "m" #'agent-shell-set-session-model
+      :desc "Cyclic session mode" "c"  #'agent-shell-cycle-session-mode
       :desc "Reset Sidebar" "r" #'agent-shell-sidebar-reset)))
