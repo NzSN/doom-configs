@@ -102,3 +102,4 @@
   :recipe (:host github
            :repo "jethrokuan/agent-shell-manager"
            :files ("*.el")))
+(package! eca :recipe (:host github :repo "editor-code-assistant/eca-emacs" :files ("*.el")))
