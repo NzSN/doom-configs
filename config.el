@@ -391,4 +391,7 @@
       :desc "Agent shell sidebar" "s" #'agent-shell-sidebar-toggle
       :desc "Select model" "m" #'agent-shell-set-session-model
       :desc "Cyclic session mode" "c"  #'agent-shell-cycle-session-mode
-      :desc "Reset Sidebar" "r" #'agent-shell-sidebar-reset)))
+      :desc "Reset Sidebar" "r" #'agent-shell-sidebar-reset
+      :desc "Workspace" "w" #'agent-shell-workspace-toggle)))
+(use-package! agent-shell-workspace
+  :after agent-shell)

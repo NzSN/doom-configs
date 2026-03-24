@@ -96,3 +96,5 @@
   :recipe (:host github
            :repo "nineluj/agent-review"
            :files ("*.el")))
+(package! agent-shell-workspace
+  :recipe (:host github :repo "gveres/agent-shell-workspace"))
