@@ -384,6 +384,11 @@
 	    (lambda ()
 	      (when (string-match-p "\\*agent-shell-diff\\*" (buffer-name))
 		(evil-emacs-state)))))
+(use-package! agent-shell-workspace
+  :after agent-shell)
+(use-package! agent-shell-manager
+  :after agent-shell)
+
 (map! :leader
       (:prefix-map ("a" . "AI AGENT")
       (:prefix ("s" . "Agent Shell")
@@ -392,6 +397,5 @@
       :desc "Select model" "m" #'agent-shell-set-session-model
       :desc "Cyclic session mode" "c"  #'agent-shell-cycle-session-mode
       :desc "Reset Sidebar" "r" #'agent-shell-sidebar-reset
-      :desc "Workspace" "w" #'agent-shell-workspace-toggle)))
-(use-package! agent-shell-workspace
-  :after agent-shell)
+      :desc "Workspace" "w" #'agent-shell-workspace-toggle
+      :desc "Manager" "n" #'agent-shell-manager-toggle)))
