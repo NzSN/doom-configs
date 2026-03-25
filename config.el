@@ -384,8 +384,6 @@
 	    (lambda ()
 	      (when (string-match-p "\\*agent-shell-diff\\*" (buffer-name))
 		(evil-emacs-state)))))
-(use-package! agent-shell-workspace
-  :after agent-shell)
 (use-package! agent-shell-manager
   :after agent-shell)
 
