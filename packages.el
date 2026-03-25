@@ -96,8 +96,6 @@
   :recipe (:host github
            :repo "nineluj/agent-review"
            :files ("*.el")))
-(package! agent-shell-workspace
-  :recipe (:host github :repo "gveres/agent-shell-workspace"))
 (package! agent-shell-manager
   :recipe (:host github
            :repo "jethrokuan/agent-shell-manager"
