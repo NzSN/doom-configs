@@ -370,7 +370,7 @@
 (map! :leader :desc "Claude Code" "a c" #'claude-code-ide-menu)
 
 ;; Agent shell
-(require 'acp)
+(use-package! acp)
 (use-package! agent-shell
   :init
   :config
