@@ -189,8 +189,6 @@
   (load-theme 'kaolin-dark t)
   (kaolin-treemacs-theme))
 
-(load! "lisp/tla-tools/tla-pcal-mode")
-(load! "lisp/tla-tools/tla-tools")
 (require 'tla-pcal-mode)
 (require 'tla-tools)
 (use-package tla-pcal-mode :mode "\.tla$")

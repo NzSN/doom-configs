@@ -101,3 +101,7 @@
            :repo "jethrokuan/agent-shell-manager"
            :files ("*.el")))
 (package! eca :recipe (:host github :repo "editor-code-assistant/eca-emacs" :files ("*.el")))
+(package! tla-tools
+  :recipe (:host github
+           :repo "NzSN/tla-tools"
+           :files ("*.el")))
