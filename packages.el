@@ -88,7 +88,8 @@
 ;; AI
 (package! claude-code-ide
   :recipe (:host github :repo "manzaltu/claude-code-ide.el"))
-(package! shell-maker)
+(package! shell-maker
+  :recipe (:host github :repo "xenodium/shell-maker"))
 (package! acp)
 (package! agent-shell)
 (package! agent-shell-sidebar :recipe (:host github :repo "cmacrae/agent-shell-sidebar"))

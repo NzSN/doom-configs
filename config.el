@@ -384,7 +384,10 @@
 		(evil-emacs-state)))))
 (use-package! agent-shell-manager
   :after agent-shell)
-
+(use-package! agent-shell-sidebar
+  :after agent-shell
+  :config
+  (setq agent-shell-sidebar-default-config (agent-shell-opencode-make-agent-config)))
 (map! :leader
       (:prefix-map ("a" . "AI AGENT")
       (:prefix ("s" . "Agent Shell")
