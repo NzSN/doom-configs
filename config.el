@@ -397,3 +397,6 @@
       :desc "Cyclic session mode" "c"  #'agent-shell-cycle-session-mode
       :desc "Reset Sidebar" "r" #'agent-shell-sidebar-reset
       :desc "Manager" "g" #'agent-shell-manager-toggle)))
+
+;; Warning supresses
+(add-to-list 'warning-suppress-types '(undo discard-info))
