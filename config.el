@@ -189,8 +189,6 @@
   (load-theme 'kaolin-dark t)
   (kaolin-treemacs-theme))
 
-(load! "lisp/tla-tools/tla-pcal-mode")
-(load! "lisp/tla-tools/tla-tools")
 (require 'tla-pcal-mode)
 (require 'tla-tools)
 (use-package tla-pcal-mode :mode "\.tla$")
@@ -386,7 +384,10 @@
 		(evil-emacs-state)))))
 (use-package! agent-shell-manager
   :after agent-shell)
-
+(use-package! agent-shell-sidebar
+  :after agent-shell
+  :config
+  (setq agent-shell-sidebar-default-config (agent-shell-opencode-make-agent-config)))
 (map! :leader
       (:prefix-map ("a" . "AI AGENT")
       (:prefix ("s" . "Agent Shell")
@@ -397,6 +398,7 @@
       :desc "Reset Sidebar" "r" #'agent-shell-sidebar-reset
       :desc "Manager" "g" #'agent-shell-manager-toggle)))
 
+<<<<<<< HEAD
 (require 'ox-publish)
 (setq org-publish-project-alist
       '(("Docs"
@@ -408,3 +410,5 @@
          :auto-sitemap t                     ; 自动生成站点地图
          :sitemap-title "Docs"
          )))
+;; Warning supresses
+(add-to-list 'warning-suppress-types '(undo discard-info))

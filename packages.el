@@ -88,7 +88,8 @@
 ;; AI
 (package! claude-code-ide
   :recipe (:host github :repo "manzaltu/claude-code-ide.el"))
-(package! shell-maker)
+(package! shell-maker
+  :recipe (:host github :repo "xenodium/shell-maker"))
 (package! acp)
 (package! agent-shell)
 (package! agent-shell-sidebar :recipe (:host github :repo "cmacrae/agent-shell-sidebar"))
@@ -101,3 +102,7 @@
            :repo "jethrokuan/agent-shell-manager"
            :files ("*.el")))
 (package! eca :recipe (:host github :repo "editor-code-assistant/eca-emacs" :files ("*.el")))
+(package! tla-tools
+  :recipe (:host github
+           :repo "NzSN/tla-tools"
+           :files ("*.el")))
