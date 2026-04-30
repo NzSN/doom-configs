@@ -16,6 +16,14 @@
 
 (setenv "LSP_USE_PLISTS" "1")
 (setenv "WEBKIT_DISABLE_COMPOSITING_MODE" "1")
+;; Maximize optimization for native compilation (0 to 3)
+(setq native-comp-speed 5) 
+;; Set safety level (0 is fastest but risky, 1 is default/safe)
+(setq compilation-safety 1) 
+;; Silence compiler warnings to keep the *Messages* buffer clean
+(setq native-comp-async-report-warnings-errors 'silent)
+(setq package-native-compile t)
+
 
 (doom! :input
        chinese

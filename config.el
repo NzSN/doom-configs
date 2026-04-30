@@ -396,3 +396,15 @@
       :desc "Cyclic session mode" "c"  #'agent-shell-cycle-session-mode
       :desc "Reset Sidebar" "r" #'agent-shell-sidebar-reset
       :desc "Manager" "g" #'agent-shell-manager-toggle)))
+
+(require 'ox-publish)
+(setq org-publish-project-alist
+      '(("Docs"
+         :base-directory "~/Notes/Concepts/"   ; 源文件目录
+         :base-extension "org"               ; 处理的文件类型
+         :publishing-directory "~/public_html/" ; 导出目标目录
+         :publishing-function org-latex-publish-to-pdf
+         :recursive t                        ; 包含子目录
+         :auto-sitemap t                     ; 自动生成站点地图
+         :sitemap-title "Docs"
+         )))
