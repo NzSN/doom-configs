@@ -398,7 +398,6 @@
       :desc "Reset Sidebar" "r" #'agent-shell-sidebar-reset
       :desc "Manager" "g" #'agent-shell-manager-toggle)))
 
-<<<<<<< HEAD
 (require 'ox-publish)
 (setq org-publish-project-alist
       '(("Docs"
