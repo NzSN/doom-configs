@@ -68,7 +68,7 @@
     :after org-roam)
 
 (use-package! org-roam-ui
-    :init 
+    :init
     ;; (when (featurep 'xwidget-internal)
     ;;       (setq org-roam-ui-browser-function #'xwidget-webkit-browse-url))
     :after org-roam ;; or :after org
@@ -402,12 +402,12 @@
 (require 'ox-publish)
 (setq org-publish-project-alist
       '(("Docs"
-         :base-directory "~/Notes/Concepts/"   ; 源文件目录
-         :base-extension "org"               ; 处理的文件类型
-         :publishing-directory "~/public_html/" ; 导出目标目录
+         :base-directory "~/Notes/Concepts/"
+         :base-extension "org"
+         :publishing-directory "~/public_html/"
          :publishing-function org-latex-publish-to-pdf
-         :recursive t                        ; 包含子目录
-         :auto-sitemap t                     ; 自动生成站点地图
+         :recursive t
+         :auto-sitemap t
          :sitemap-title "Docs"
          )))
 ;; Warning supresses
