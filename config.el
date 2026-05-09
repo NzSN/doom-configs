@@ -398,7 +398,8 @@
       :desc "Select model" "m" #'agent-shell-set-session-model
       :desc "Cyclic session mode" "c"  #'agent-shell-cycle-session-mode
       :desc "Reset Sidebar" "r" #'agent-shell-sidebar-reset
-      :desc "Manager" "g" #'agent-shell-manager-toggle)))
+      :desc "Manager" "g" #'agent-shell-manager-toggle
+      :desc "current file" "f" #'agent-shell-send-current-file)))
 
 (require 'ox-publish)
 (setq org-publish-project-alist
