@@ -399,7 +399,7 @@
       :desc "Cyclic session mode" "c"  #'agent-shell-cycle-session-mode
       :desc "Reset Sidebar" "r" #'agent-shell-sidebar-reset
       :desc "Manager" "g" #'agent-shell-manager-toggle
-      :desc "current position" "f" #'agent-shell-send-current-file
+      :desc "current file" "f" #'agent-shell-send-current-file
       :desc "current position" "b" #'agent-shell-send-dwim)))
 
 (require 'ox-publish)
