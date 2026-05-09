@@ -72,6 +72,7 @@
 (package! lsp-sourcekit)
 (package! super-save)
 (package! ellama)
+(package! sqlite3)
 (package! disaster
   :recipe (:host github :repo "jart/disaster"))
 (package! vlf
