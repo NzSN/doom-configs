@@ -14,6 +14,14 @@
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
+;; evil-collection-repl-submit-state controls which evil state gets RET→send
+;; vs RET→newline in shell/repl modes (comint, shell-maker, eshell, vterm,
+;; etc.). Doom defaults to 'insert (insert=send, normal=newline). We prefer the
+;; opposite (normal=send, insert=newline), matching evil-collection's upstream
+;; default. Must be set here (init.el, before modules load) to take effect
+;; before evil-collection-init runs.
+(setq evil-collection-repl-submit-state 'normal)
+
 (setenv "LSP_USE_PLISTS" "1")
 (setenv "WEBKIT_DISABLE_COMPOSITING_MODE" "1")
 ;; Maximize optimization for native compilation (0 to 3)
