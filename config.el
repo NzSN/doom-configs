@@ -53,6 +53,10 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+
+;; Org-mode
+(use-package! org-depend)
+
 ;; Encryption Settings
 (require 'epa-file)
 (epa-file-enable)
@@ -188,6 +192,7 @@
   :config
   (load-theme 'kaolin-dark t)
   (kaolin-treemacs-theme))
+
 
 (require 'tla-pcal-mode)
 (require 'tla-tools)
