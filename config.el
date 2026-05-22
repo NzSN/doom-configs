@@ -392,9 +392,7 @@
 (use-package! agent-shell-sidebar
   :after agent-shell
   :config
-  (setq agent-shell-show-welcome-message nil)
-  (setq agent-shell-sidebar-default-config (agent-shell-pi-make-agent-config))
-  )
+  (setq agent-shell-show-welcome-message nil))
 (map! :leader
       (:prefix-map ("a" . "AI AGENT")
       (:prefix ("s" . "Agent Shell")
