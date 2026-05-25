@@ -107,3 +107,4 @@
   :recipe (:host github
            :repo "NzSN/tla-tools"
            :files ("*.el")))
+(package! aidermacs)
