@@ -53,20 +53,23 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-
 ;; Org-mode
-(use-package! org-depend)
+(use-package! org-depend
+  :after org-mode)
+;; Encryption Settings (autoloaded, no require needed)
+(use-package! epa-file
+  :after org-mode
+  :init
+  (epa-file-enable))
+(use-package! org-crypt
+  :after epa-file
+  :init
+  (org-crypt-use-before-save-magic)
+  :config
+  (setq org-tags-exclude-from-inheritance (quote ("crypt")))
+  ;; GPG key to use for encryption
+  (setq org-crypt-key nil))
 
-;; Encryption Settings
-(require 'epa-file)
-(epa-file-enable)
-;; Encrypting Specific Entries in an org File with org-crypt.
-(require 'org-crypt)
-(org-crypt-use-before-save-magic)
-(setq org-tags-exclude-from-inheritance (quote ("crypt")))
-;; GPG key to use for encryption
-;; Either the Key ID or set to nil to use symmetric encryption.
-(setq org-crypt-key nil)
 ;; Org-roam v2 configures
 (use-package! websocket
     :after org-roam)
@@ -145,15 +148,16 @@
 (add-hook 'c-mode-hook 'my-c-indent-setup)
 
 
-(load-library "find-lisp")
 (use-package! org
   :defer t
   :config
-  ;; Setup attach for Notes
   (setq org-agenda-inhibit-startup t)
-  (setq org-agenda-files
-        (append (find-lisp-find-files "~/Notes" "\.org$")
-                (find-lisp-find-files "~/Notes" "\.org\.gpg$")))
+  ;; Compute agenda files lazily after idle to avoid blocking startup
+  (run-with-idle-timer 2 nil
+    (lambda ()
+      (setq org-agenda-files
+            (append (find-lisp-find-files "~/Notes" "\\.org$")
+                    (find-lisp-find-files "~/Notes" "\\.org\\.gpg$")))))
   (setq org-agenda-text-search-extra-files
         '(agenda-archives
           "~/Notes/Schedules/Schedule.org.gpg"))
@@ -164,13 +168,15 @@
           (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D!)")
           (sequence "|" "OKAY(o)" "YES(y)" "NO(n)"))))
 
-;; Read env from .zshrc into emacs
-(let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
-  (setenv "PATH" path)
-  (setq exec-path
-        (append
-         (split-string-and-unquote path ":")
-         exec-path)))
+;; Read env from .zshrc into emacs (run on idle to avoid blocking startup)
+(run-with-idle-timer 1 nil
+  (lambda ()
+    (let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
+      (setenv "PATH" path)
+      (setq exec-path
+            (append
+             (split-string-and-unquote path ":")
+             exec-path)))))
 
 ;; lsp mode
 (setq lsp-clients-clangd-args '("-j=12"
@@ -180,32 +186,19 @@
 				"--completion-style=detailed"
 				"--header-insertion=iwyu"
 				"--pch-storage=disk"))
-;; Use ccls instead. Uncomment this if want ti use clangd.
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
 
 ;; (map! "C-c C" #'centaur-tabs--kill-this-buffer-dont-ask)
 
-(load! "lisp/kaolin-themes/kaolin-themes-lib")
-(load! "lisp/kaolin-themes/kaolin-themes")
-(load! "lisp/kaolin-themes/kaolin-themes-treemacs")
-(use-package kaolin-themes
-  :config
-  (load-theme 'kaolin-dark t)
-  (kaolin-treemacs-theme))
+(use-package tla-pcal-mode :mode "\\.tla$")
 
+;;(after! org
+;;  (load! "lisp/org-fragtog/org-fragtog")
+;;  (require 'org-fragtog)
+;;  (add-hook 'org-mode-hook 'org-fragtog-mode))
 
-(require 'tla-pcal-mode)
-(require 'tla-tools)
-(use-package tla-pcal-mode :mode "\.tla$")
-
-(load! "lisp/org-fragtog/org-fragtog")
-(require 'org-fragtog)
-(add-hook 'org-mode-hook 'org-fragtog-mode)
-
-(load! "lisp/bazel")
-(require 'bazel)
-(use-package bazel-mode :mode "\.bzl$")
-(use-package bazel-mode :mode "\.bazel$")
+(use-package bazel-mode :mode "\\.bzl$")
+(use-package bazel-mode :mode "\\.bazel$")
 
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (use-package! highlight-indent-guides
@@ -267,7 +260,7 @@
 
 ;; super-save
 (use-package! super-save
-  :after org
+  :defer t
   :ensure t
   :config
   (super-save-mode +1)
@@ -301,36 +294,37 @@
 (setq projectile-indexing-method 'alien)
 (setq lsp-use-plists "true")
 
-(defun lsp-booster--advice-json-parse (old-fn &rest args)
-  "Try to parse bytecode instead of json."
-  (or
-   (when (equal (following-char) ?#)
-     (let ((bytecode (read (current-buffer))))
-       (when (byte-code-function-p bytecode)
-         (funcall bytecode))))
-   (apply old-fn args)))
-(advice-add (if (progn (require 'json)
-                       (fboundp 'json-parse-buffer))
-                'json-parse-buffer
-              'json-read)
-            :around
-            #'lsp-booster--advice-json-parse)
+;; lsp-booster -- deferred until lsp-mode actually loads
+(after! lsp-mode
+  (defun lsp-booster--advice-json-parse (old-fn &rest args)
+    "Try to parse bytecode instead of json."
+    (or
+     (when (equal (following-char) ?#)
+       (let ((bytecode (read (current-buffer))))
+         (when (byte-code-function-p bytecode)
+           (funcall bytecode))))
+     (apply old-fn args)))
+  (advice-add (if (fboundp 'json-parse-buffer)
+                  'json-parse-buffer
+                'json-read)
+              :around
+              #'lsp-booster--advice-json-parse)
 
-(defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
-  "Prepend emacs-lsp-booster command to lsp CMD."
-  (let ((orig-result (funcall old-fn cmd test?)))
-    (if (and (not test?)                             ;; for check lsp-server-present?
-             (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
-             lsp-use-plists
-             (not (functionp 'json-rpc-connection))  ;; native json-rpc
-             (executable-find "emacs-lsp-booster"))
-        (progn
-          (when-let ((command-from-exec-path (executable-find (car orig-result))))  ;; resolve command from exec-path (in case not found in $PATH)
-            (setcar orig-result command-from-exec-path))
-          (message "Using emacs-lsp-booster for %s!" orig-result)
-          (cons "emacs-lsp-booster" orig-result))
-      orig-result)))
-(advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
+  (defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
+    "Prepend emacs-lsp-booster command to lsp CMD."
+    (let ((orig-result (funcall old-fn cmd test?)))
+      (if (and (not test?)                             ;; for check lsp-server-present?
+               (not (file-remote-p default-directory)) ;; see lsp-resolve-final-command, it would add extra shell wrapper
+               lsp-use-plists
+               (not (functionp 'json-rpc-connection))  ;; native json-rpc
+               (executable-find "emacs-lsp-booster"))
+          (progn
+            (when-let ((command-from-exec-path (executable-find (car orig-result))))  ;; resolve command from exec-path (in case not found in $PATH)
+              (setcar orig-result command-from-exec-path))
+            (message "Using emacs-lsp-booster for %s!" orig-result)
+            (cons "emacs-lsp-booster" orig-result))
+        orig-result)))
+  (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command))
 
 (use-package! disaster
   :commands (disaster)
@@ -404,7 +398,7 @@
       :desc "current file" "f" #'agent-shell-send-current-file
       :desc "current position" "b" #'agent-shell-send-dwim)))
 
-(require 'ox-publish)
+;; ox-publish is autoloaded, no require needed
 (setq org-publish-project-alist
       '(("Docs"
          :base-directory "~/Notes/Concepts/"
