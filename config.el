@@ -397,9 +397,8 @@
       (:prefix-map ("a" . "AI AGENT")
       (:prefix ("s" . "Agent Shell")
       :desc "Create new agent shell" "n" #'agent-shell-new-shell
+      :desc "agent-shell session config" "c" #'agent-shell-set-session-config-option
       :desc "Agent shell sidebar" "s" #'agent-shell-sidebar-toggle
-      :desc "Select model" "m" #'agent-shell-set-session-model
-      :desc "Cyclic session mode" "c"  #'agent-shell-cycle-session-mode
       :desc "Reset Sidebar" "r" #'agent-shell-sidebar-reset
       :desc "Manager" "g" #'agent-shell-manager-toggle
       :desc "current file" "f" #'agent-shell-send-current-file
