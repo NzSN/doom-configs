@@ -189,14 +189,19 @@
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
 
 (require 'tla-pcal-mode)
-(use-package tla-pcal-mode :mode "\\.tla$")
+(require 'tla-tools)
+(use-package! tla-pcal-mode :mode "\\.tla$")
+
 ;;(after! org
 ;;  (load! "lisp/org-fragtog/org-fragtog")
 ;;  (require 'org-fragtog)
 ;;  (add-hook 'org-mode-hook 'org-fragtog-mode))
+;;  
 
-(use-package! bazel-mode :mode "\\.bzl$")
-(use-package! bazel-mode :mode "\\.bazel$")
+(load! "lisp/bazel")
+(require 'bazel)
+(use-package bazel-mode :mode "\\.bzl$")
+(use-package bazel-mode :mode "\\.bazel$")
 
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (use-package! highlight-indent-guides
