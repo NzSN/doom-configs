@@ -91,7 +91,12 @@
   :recipe (:host github :repo "manzaltu/claude-code-ide.el"))
 (package! shell-maker
   :recipe (:host github :repo "xenodium/shell-maker"))
-(package! acp)
+;; agent-shell
+(package! acp.el
+  :recipe (:host github
+           :repo "xenodium/acp.el"
+           :files ("*.el")))
+
 (package! agent-shell)
 (package! agent-shell-sidebar :recipe (:host github :repo "cmacrae/agent-shell-sidebar"))
 (package! agent-review
