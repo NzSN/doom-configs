@@ -188,17 +188,15 @@
 				"--pch-storage=disk"))
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
 
-;; (map! "C-c C" #'centaur-tabs--kill-this-buffer-dont-ask)
-
+(require 'tla-pcal-mode)
 (use-package tla-pcal-mode :mode "\\.tla$")
-
 ;;(after! org
 ;;  (load! "lisp/org-fragtog/org-fragtog")
 ;;  (require 'org-fragtog)
 ;;  (add-hook 'org-mode-hook 'org-fragtog-mode))
 
-(use-package bazel-mode :mode "\\.bzl$")
-(use-package bazel-mode :mode "\\.bazel$")
+(use-package! bazel-mode :mode "\\.bzl$")
+(use-package! bazel-mode :mode "\\.bazel$")
 
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (use-package! highlight-indent-guides
@@ -208,12 +206,12 @@
      (setq highlight-indent-guides-auto-even-face-perc 15)
      (setq highlight-indent-guides-auto-odd-face-perc 15))
 
-(use-package lsp-sourcekit
+(use-package! lsp-sourcekit
   :after lsp-mode
   :config
   (setq lsp-sourcekit-executable "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp"))
 
-(use-package swift-mode
+(use-package! swift-mode
   :hook (swift-mode . (lambda () (lsp))))
 
 ;; lsp-mode configurations
