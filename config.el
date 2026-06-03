@@ -414,9 +414,3 @@
          )))
 ;; Warning supresses
 (add-to-list 'warning-suppress-types '(undo discard-info))
-
-;; Aidermacs
-(use-package! aidermacs
-  :config
-  (setq aidermacs-default-model "deepseek/deepseek-v4-pro")
-  (aidermacs-setup-minor-mode))
