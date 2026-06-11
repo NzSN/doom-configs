@@ -112,3 +112,6 @@
   :recipe (:host github
            :repo "NzSN/tla-tools"
            :files ("*.el")))
+
+;; Dafny4
+(package! dafny :recipe (:host github :repo "boogie-org/boogie-friends" :files ("emacs/*.el")))
