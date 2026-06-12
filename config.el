@@ -218,6 +218,8 @@
 
 (use-package! swift-mode
   :hook (swift-mode . (lambda () (lsp))))
+(use-package! dafny-mode
+  :hook (dafny-mode . (lambda () (lsp))))
 
 ;; lsp-mode configurations
 (use-package! lsp-mode
