@@ -22,6 +22,7 @@
 ;; before evil-collection-init runs.
 (setq evil-collection-repl-submit-state 'normal)
 
+(setenv "HOME" (expand-file-name "~"))
 (setenv "LSP_USE_PLISTS" "1")
 (setenv "WEBKIT_DISABLE_COMPOSITING_MODE" "1")
 ;; Maximize optimization for native compilation (0 to 3)
@@ -48,7 +49,7 @@
        :ui
        ;;deft                         ; notational velocity for Emacs
        doom                           ; what makes DOOM look the way it does
-       doom-dashboard                 ; a nifty splash screen for Emacs
+       dashboard                 ; a nifty splash screen for Emacs
        doom-quit                      ; DOOM quit-message prompts when you quit Emacs
        (emoji +unicode)               ; 🙂
        hl-todo                        ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
