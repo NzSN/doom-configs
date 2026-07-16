@@ -34,7 +34,7 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
-(setq org-roam-directory "~/Notes/Concepts")
+(setq org-roam-directory "~/Notes/Thinkings")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -407,7 +407,7 @@
 ;; ox-publish is autoloaded, no require needed
 (setq org-publish-project-alist
       '(("Docs"
-         :base-directory "~/Notes/Concepts/"
+         :base-directory "~/Notes/Thinkings/"
          :base-extension "org"
          :publishing-directory "~/public_html/"
          :publishing-function org-latex-publish-to-pdf
