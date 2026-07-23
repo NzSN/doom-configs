@@ -98,7 +98,7 @@
            :files ("*.el")))
 
 (package! agent-shell)
-(package! agent-shell-sidebar :recipe (:host github :repo "cmacrae/agent-shell-sidebar"))
+(package! agent-shell-sidebar :recipe (:host github :repo "NzSN/agent-shell-sidebar"))
 (package! agent-review
   :recipe (:host github
            :repo "nineluj/agent-review"
