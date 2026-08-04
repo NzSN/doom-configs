@@ -377,6 +377,7 @@
   :init
   :config
   (setq agent-shell-session-strategy 'prompt)
+  (setq agent-shell-markdown-prettify-tables nil)
   ;; Evil state-specific RET behavior: insert mode = newline, normal mode = send
   (evil-define-key 'insert agent-shell-mode-map (kbd "RET") #'newline)
   (evil-define-key 'normal agent-shell-mode-map (kbd "RET") #'comint-send-input)
@@ -386,7 +387,11 @@
   (add-hook 'diff-mode-hook
 	    (lambda ()
 	      (when (string-match-p "\\*agent-shell-diff\\*" (buffer-name))
-		(evil-emacs-state)))))
+		(evil-emacs-state))))
+  (add-hook 'agent-shell-diff-mode-hook
+            (lambda ()
+              (setq-local bidi-paragraph-direction 'left-to-right)
+              (setq-local bidi-inhibit-bpa t))))
 (use-package! agent-shell-manager
   :after agent-shell)
 (use-package! agent-shell-sidebar

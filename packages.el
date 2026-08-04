@@ -97,7 +97,7 @@
            :repo "xenodium/acp.el"
            :files ("*.el")))
 
-(package! agent-shell)
+(package! agent-shell :recipe (:host github :repo "NzSN/agent-shell"))
 (package! agent-shell-sidebar :recipe (:host github :repo "NzSN/agent-shell-sidebar"))
 (package! agent-review
   :recipe (:host github
