@@ -378,6 +378,7 @@
   :config
   (setq agent-shell-session-strategy 'prompt)
   (setq agent-shell-markdown-prettify-tables nil)
+  (setq agent-shell-session-restore-verbosity 'full)
   ;; Evil state-specific RET behavior: insert mode = newline, normal mode = send
   (evil-define-key 'insert agent-shell-mode-map (kbd "RET") #'newline)
   (evil-define-key 'normal agent-shell-mode-map (kbd "RET") #'comint-send-input)
