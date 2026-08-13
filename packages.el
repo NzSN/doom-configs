@@ -94,7 +94,7 @@
 ;; agent-shell
 (package! acp.el
   :recipe (:host github
-           :repo "xenodium/acp.el"
+           :repo "NzSN/acp.el"
            :files ("*.el")))
 
 (package! agent-shell :recipe (:host github :repo "NzSN/agent-shell"))
