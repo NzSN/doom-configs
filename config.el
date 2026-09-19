@@ -365,12 +365,6 @@
       :map evil-org-mode-map
       :i "<tab>" #'my/org-tab-conditional)
 
-;; Claude Code IDE
-(use-package! claude-code-ide
-  :config
-  (claude-code-ide-emacs-tools-setup)) ; Optionally enable Emacs MCP tools
-(map! :leader :desc "Claude Code" "a c" #'claude-code-ide-menu)
-
 ;; Agent shell
 (use-package! acp)
 (use-package! agent-shell

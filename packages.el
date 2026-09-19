@@ -87,8 +87,6 @@
            :repo "tecosaur/org-pandoc-import"
            :files ("*.el" "filters" "preprocessors")))
 ;; AI
-(package! claude-code-ide
-  :recipe (:host github :repo "manzaltu/claude-code-ide.el"))
 (package! shell-maker
   :recipe (:host github :repo "xenodium/shell-maker"))
 ;; agent-shell
