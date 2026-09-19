@@ -87,25 +87,6 @@
            :repo "tecosaur/org-pandoc-import"
            :files ("*.el" "filters" "preprocessors")))
 ;; AI
-(package! shell-maker
-  :recipe (:host github :repo "xenodium/shell-maker"))
-;; agent-shell
-(package! acp.el
-  :recipe (:host github
-           :repo "NzSN/acp.el"
-           :files ("*.el")))
-
-(package! agent-shell :recipe (:host github :repo "NzSN/agent-shell"))
-(package! agent-shell-sidebar :recipe (:host github :repo "NzSN/agent-shell-sidebar"))
-(package! agent-review
-  :recipe (:host github
-           :repo "nineluj/agent-review"
-           :files ("*.el")))
-(package! agent-shell-manager
-  :recipe (:host github
-           :repo "jethrokuan/agent-shell-manager"
-           :files ("*.el")))
-(package! eca :recipe (:host github :repo "editor-code-assistant/eca-emacs" :files ("*.el")))
 (package! tla-tools
   :recipe (:host github
            :repo "NzSN/tla-tools"

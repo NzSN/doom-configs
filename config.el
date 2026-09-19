@@ -365,44 +365,6 @@
       :map evil-org-mode-map
       :i "<tab>" #'my/org-tab-conditional)
 
-;; Agent shell
-(use-package! acp)
-(use-package! agent-shell
-  :init
-  :config
-  (setq agent-shell-session-strategy 'prompt)
-  (setq agent-shell-markdown-prettify-tables nil)
-  (setq agent-shell-session-restore-verbosity 'full)
-  ;; Evil state-specific RET behavior: insert mode = newline, normal mode = send
-  (evil-define-key 'insert agent-shell-mode-map (kbd "RET") #'newline)
-  (evil-define-key 'normal agent-shell-mode-map (kbd "RET") #'comint-send-input)
-  (evil-define-key 'normal agent-shell-manager-mode-map (kbd "RET") #'agent-shell-manager-goto)
-
-  ;; Configure *agent-shell-diff* buffers to start in Emacs state
-  (add-hook 'diff-mode-hook
-	    (lambda ()
-	      (when (string-match-p "\\*agent-shell-diff\\*" (buffer-name))
-		(evil-emacs-state))))
-  (add-hook 'agent-shell-diff-mode-hook
-            (lambda ()
-              (setq-local bidi-paragraph-direction 'left-to-right)
-              (setq-local bidi-inhibit-bpa t))))
-(use-package! agent-shell-manager
-  :after agent-shell)
-(use-package! agent-shell-sidebar
-  :after agent-shell
-  :config
-  (setq agent-shell-show-welcome-message nil))
-(map! :leader
-      (:prefix-map ("a" . "AI AGENT")
-      (:prefix ("s" . "Agent Shell")
-      :desc "Create new agent shell" "n" #'agent-shell-new-shell
-      :desc "agent-shell session config" "c" #'agent-shell-set-session-config-option
-      :desc "Agent shell sidebar" "s" #'agent-shell-sidebar-toggle
-      :desc "Reset Sidebar" "r" #'agent-shell-sidebar-reset
-      :desc "Manager" "g" #'agent-shell-manager-toggle
-      :desc "current file" "f" #'agent-shell-send-current-file
-      :desc "current position" "b" #'agent-shell-send-dwim)))
 
 ;; ox-publish is autoloaded, no require needed
 (setq org-publish-project-alist
