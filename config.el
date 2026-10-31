@@ -380,3 +380,5 @@
 ;; Warning supresses
 (add-to-list 'warning-suppress-types '(undo discard-info))
 (setq markdown-open-command "wslview")
+
+(setq treemacs-missing-project-action 'remove)

@@ -33,6 +33,14 @@
 (setq native-comp-async-report-warnings-errors 'silent)
 (setq package-native-compile t)
 
+;; `org-roam-db-location' defaults to a path built from
+;; `user-emacs-directory', which Doom keeps as a "~"-relative string
+;; ("~/.config/emacs/.local/cache/").  SQLite cannot open a literal "~"
+;; path (SQLITE_CANTOPEN, error 14), so pin an absolute path before
+;; org-roam (and its DB) is loaded.
+(setq org-roam-db-location
+      (expand-file-name "~/.config/emacs/.local/cache/org-roam.db"))
+
 
 (doom! :input
        chinese
