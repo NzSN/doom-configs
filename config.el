@@ -222,12 +222,16 @@
   :hook (dafny-mode . (lambda () (lsp))))
 
 ;; lsp-mode configurations
-(use-package! lsp-mode
-  :init
-  :config
-  (setq lsp-headerline-breadcrumb-enable t)
-  (setq lsp-headerline-breadcrumb-segments '(project symbols))
-  (setq lsp-lens-enable nil))
+;; Do NOT use `use-package! lsp-mode' here without `:defer'/`:commands': it
+;; would eagerly `require' lsp-mode while $DOOMDIR/config.el is loading, which
+;; resolves the deferred `:after lsp-mode' integrations of every enabled +lsp
+;; language module. One of those (lsp-dart -> lsp-treemacs) pulls in treemacs,
+;; which then restores its persisted workspaces mid-init (and blocks startup on
+;; a prompt for missing projects). Keep this config lazy via `after!'.
+(after! lsp-mode
+  (setq lsp-headerline-breadcrumb-enable t
+        lsp-headerline-breadcrumb-segments '(project symbols)
+        lsp-lens-enable nil))
 
 (use-package! lsp-ui
   :after (lsp-mode)
