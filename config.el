@@ -386,3 +386,10 @@
 (setq markdown-open-command "wslview")
 
 (setq treemacs-missing-project-action 'remove)
+
+;; Let evil-window-next / other-window enter the Treemacs project sidebar.
+;; Doom sets treemacs-is-never-other-window, which marks that window
+;; no-other-window. Close and reopen the sidebar once so the old parameter
+;; is dropped.
+(after! treemacs
+  (setq treemacs-is-never-other-window nil))
