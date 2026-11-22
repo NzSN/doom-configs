@@ -53,6 +53,18 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Send Shift+Enter to the terminal as a literal newline.  Calling `newline'
+;; directly would try to modify vterm's read-only display buffer instead.
+(after! vterm
+  (defun +vterm-insert-newline ()
+    "Insert a literal newline at the terminal prompt."
+    (interactive)
+    (vterm-insert "\n"))
+
+  (map! :map vterm-mode-map
+        :n [S-return] #'+vterm-insert-newline
+        :i [S-return] #'+vterm-insert-newline))
+
 ;; Org-mode
 (use-package! org-depend
   :after org-mode)
