@@ -397,6 +397,10 @@
 (add-to-list 'warning-suppress-types '(undo discard-info))
 (setq markdown-open-command "wslview")
 
+;; Use Windows' browser handler instead of GTK/xdg-open from WSL.
+(setq browse-url-browser-function #'browse-url-generic
+      browse-url-generic-program "wslview")
+
 (setq treemacs-missing-project-action 'remove)
 
 ;; Let evil-window-next / other-window enter the Treemacs project sidebar.
