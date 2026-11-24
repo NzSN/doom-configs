@@ -365,6 +365,18 @@
 (map! :leader :desc "Harpoon Menu"     "f h" 'harpoon-quick-menu-hydra)
 (map! :leader :desc "Harpoon Add File" "f H" 'harpoon-add-file)
 
+(defun my/dired-copy-absolute-path ()
+  "Copy the absolute path of the Dired entry at point."
+  (interactive)
+  (let ((path (dired-get-filename)))
+    (kill-new path)
+    (message "Copied: %s" path)))
+
+(map! :after dired
+      :localleader
+      :map dired-mode-map
+      :desc "Copy absolute path" "y" #'my/dired-copy-absolute-path)
+
 
 (use-package! org-pandoc-import :after org)
 (setq epg-pinentry-mode 'loopback)
